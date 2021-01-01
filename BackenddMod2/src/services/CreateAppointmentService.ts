@@ -12,7 +12,7 @@ import {getCustomRepository} from 'typeorm';
 
 interface Request {
     date : Date;
-    provider:string;
+    provider:string
 }
 
 
@@ -38,6 +38,8 @@ class CreateAppointmentService {
         const appointment = appointmentsRepository.create({
             provider,
             date: appointmentDate,
+            
+            
         });
 
         await appointmentsRepository.save(appointment);
