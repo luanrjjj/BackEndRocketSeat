@@ -23,16 +23,16 @@ export default class AlterProviderFilterToProviderId1609447864294 implements Mig
 
     public async down(queryRunner: QueryRunner): Promise<void> {
 
-        await queryRunner.dropForeignKey('appointments','AppointmentsProvider')
+        await queryRunner.dropForeignKey('appointments','AppointmentProvider')
 
         await queryRunner.dropColumn('appointments','provider_id')
-
+/*
         await queryRunner.addColumn('appointments',new TableColumn({
-            name: 'id',
+            name: 'provider',
             type: 'varchar',
         
         }));
-                
+            */    
 
         }
     }

@@ -9,7 +9,7 @@ implements MigrationInterface {
                 columns :[
                     {
                         name: 'id',
-                        type: 'varchar',
+                        type: 'uuid',
                         isPrimary: true,
                         generationStrategy: 'uuid',
                         default:'uuid_generate_v4()',
@@ -18,16 +18,17 @@ implements MigrationInterface {
                     {
                         name:'provider',
                         type:'varchar',
-                        isNullable :false,
+                        
+                       
 
                     },
                     {
                         name:'date',
                         type: 'timestamp with time zone',
-                        isNullable: false,
+                        
                     },
                     {
-                        name:'create_at',
+                        name:'created_at',
                         type:'timestamp',
                         default:'now()'
                     

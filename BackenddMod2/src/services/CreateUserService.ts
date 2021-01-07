@@ -1,7 +1,7 @@
 
 import { getRepository } from 'typeorm';
 import User from '../models/User';
-import usersRouter from '../routes/users.routes';
+import {hash} from 'bcryptjs'
 
 
 
@@ -19,7 +19,7 @@ class CreateUserService {
     public async execute({name,email,password}:Request) : Promise<User> {
         const usersRepository = getRepository(User)
 
-      /*  
+      
         const checkUserExists = await usersRepository.findOne( {
             where: {email},
         })
@@ -28,11 +28,13 @@ class CreateUserService {
             throw new Error ('Email adress alredy used');
 
         }
-*/
+
+        const hashedPassword = await hash(password,8);
+
         const user = usersRepository.create({
             name,
             email,
-            password        
+            password:hashedPassword     
         })
 
 
