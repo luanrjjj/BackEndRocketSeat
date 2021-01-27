@@ -14,7 +14,7 @@ try {
 
     console.log(request.body)
 
-    const { user } = await authenticateUser.execute({
+    const { user,token } = await authenticateUser.execute({
         email,
         password,
 
@@ -30,7 +30,7 @@ try {
         updated_at: user.updated_at,
       };
     
-    return response.json({user:userWithoutPassword});
+    return response.json({user:userWithoutPassword,token});
 
 }catch(err) {
     console.log(err)
